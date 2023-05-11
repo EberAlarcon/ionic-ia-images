@@ -1,0 +1,58 @@
+<!-- De esta manera reutilizo el header -->
+
+<app-header title="Inicio"></app-header>
+
+
+<ion-content>
+<!-- Para que el usuario deslize la pantalla para refrescar la pagina -->
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+<!-- -------------------------------------------------------------------------- -->
+    <div class="ion-padding-horizontal">
+        <h1>Bienvenido/a</h1>
+        <h4>Crea  <strong>imágenes creativas</strong> <br> con tán sólo escribir una descripción</h4>
+    </div>
+
+    <!-- -------------------------  Posts ------------------------ -->
+    <!-- -----------------Recorro el arreglo----------------->
+    <!-- -----------------CON EL *ngIf compuerbo que exista la longitud del posts----------------->
+
+
+    <ion-grid *ngIf="posts.length" >
+        <ion-row>
+            <!-- PARA MOSTRAR TIPO PINTEREST -->
+          <ion-col class="click" (click)="showPostDetail(p)" [ngClass]="{'col-down': i % 2 !==0}" size-lg="3" size-md="3" size-sm="6" size="6" *ngFor="let p of posts; index as i">
+            <ion-avatar>
+              <img [src]="p.images[0]" />
+            </ion-avatar>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+
+      <ion-grid *ngIf="loading">
+        <ion-row>
+            <!-- PARA MOSTRAR CARGANDO -->
+          <ion-col [ngClass]="{'col-down': i % 2 !==0}" size-lg="3" size-md="3" size-sm="6" size="6" *ngFor="let p of [1,1,1,1,1]; index as i">
+            <ion-avatar>
+              <ion-skeleton-text animated style="width: 100%; height: 100%;"></ion-skeleton-text>
+            </ion-avatar>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <div class="empty" *ngIf="!posts.length && !loading">
+        <ion-icon  name="images-outline"></ion-icon>
+        <h4>No hay publicaciones disponibles</h4>
+
+      </div>
+
+<!-- Definimos un boton con "ifab" colocamos el routerLink para crear imagen y el boton (botton para arriba botoom para abajo)+ -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button routerLink="/create-images">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+</ion-content>

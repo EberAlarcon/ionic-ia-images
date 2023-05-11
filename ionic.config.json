@@ -1,0 +1,7 @@
+{
+  "name": "AI-with-pictures-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

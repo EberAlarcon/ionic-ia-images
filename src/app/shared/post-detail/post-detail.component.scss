@@ -1,0 +1,46 @@
+img{
+    border-radius: 10px;
+
+    &.selected{
+        border: 3px solid var(--ion-color-rp);
+    }
+}
+
+.images-wrapper{
+    width: 35vw;
+
+}
+
+h1{
+    font-size: 5vw;
+    line-height: 4.5vw;
+    padding: 20px;
+}
+
+.user{
+    font-size: 14px;
+    text-align: center;
+    padding: 15px;
+}
+
+.promp-item{
+    --border-width: 1px;
+    --border-color: var(--ion-color-medium);
+    --border-style: solid;
+    --border-radius: 10px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 767px){
+    .images-wrapper{
+        width: 100%;
+    }
+}
+
+//Para resolcuones mas grandes
+@media screen and (max-width: 992) {
+    .images-wrapper{
+        width: 85vh;
+    }
+    
+}
